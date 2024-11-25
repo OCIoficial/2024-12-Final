@@ -1,32 +1,200 @@
 \documentclass{oci}
 \usepackage[utf8]{inputenc}
 \usepackage{lipsum}
+\usepackage{tabularx}
+\usepackage{booktabs}
 
-\title{Suma de ejemplo}
+\title{Aplausómetro}
 
 \begin{document}
 \begin{problemDescription}
-  Este es un problema de ejemplo para mostrar cómo usar ocimatic.
-  El problema es muy simple.
-  Te dan dos enteros y tienes que imprimir su suma.
-  Pero ten cuidado, !`la suma podría no caber en un entero de 32 bits con signo!
+El equipo de producción del popular programa de televisión
+Domingo Colosal quiere mejorar el sistema de selección
+popular que usan para determinar el ganador de sus concursos.
+%
+Su sistema actual consiste en que los participantes
+son dispuestos en línea y el animador los presenta de
+izquierda a derecha pidiendo al público que aplaudan por ellos.
+%
+Después de presentar a todos los participantes, quién obtiene
+la mayor cantidad de aplausos es considerado el ganador.
+
+El problema con este sistema es que
+un participante está en desventaja con respecto
+al siguiente, pues luego de que el público aplaude por
+alguien, la parte del público que quiere que gane el siguiente
+participante sabe cuanto tiene que aplaudir para que
+gane.
+%
+Por lo tanto, si un participante recibe más aplausos
+que el anterior, eso no quiere decir que sea más preferido.
+%
+Sin embargo, si un participante recibe menos aplausos
+que el anterior, entonces si sabemos que este claramente
+no debería ganar.
+
+La producción cuenta con un nuevo aplausómetro digital
+que mide la intensidad exacta de los aplausos en aplos
+(la unidad internacional de intensidad de aplausos).
+%
+Aprovechando esta tecnología, la producción ha diseñado
+un nuevo sistema de selección que se ejecuta en varias rondas.
+%
+En este nuevo sistema, el animador también presenta a cada uno
+de los participantes de izquierda a derecha y pide al público
+que aplaudan por ellos.
+%
+Si la intensidad de los aplausos para un participante $a$ es estrictamente
+menor que la intensidad de aplausos para el participante directamente a
+su izquierda el participante $a$ queda eliminado.
+%
+Al final de la ronda, los participantes eliminados son sacados
+de la fila y comienza una nueva ronda.
+%
+Notar que los participantes son sacados al finalizar la ronda.
+
+El proceso termina cuando al finalizar una ronda
+no hay ningún participante eliminado.
+%
+Notar que esto implica que el proceso termina cuando una
+ronda parte con un solo participante, pues este no puede
+ser eliminado si no hay más participantes.
+%
+Al finalizar el proceso, se declara como ganador a quién
+tenga más aplausos de los participantes restantes o empate
+en caso de haber más de uno con la misma cantidad.
+
+Queda poco tiempo para el inicio de la nueva temporada
+y la producción está preocupada de que ejecutar el nuevo sistema
+tardará demasiadas rondas.
+%
+Dada la intensidad con que el público aplaude por cada participante,
+y asumiendo que la intensidad del aplauso es siempre la misma por
+cada participante, tu tarea es determinar la cantidad de rondas
+necesarias para que el proceso termine.
 \end{problemDescription}
 
 \begin{inputDescription}
-  La entrada consiste en una sola línea con dos enteros $a$ y $b$ ($-2\cdot10^9 \leq a, b \leq 2\cdot10^9$).
+La primera línea de la entrada contiene un entero $N$
+($1 \leq N \leq 10^6$) correspondiente a la cantidad
+inicial de participantes
+%
+Cada participante es numerado con un entero entre $1$ y $N$.
+%
+La segunda línea contiene $N$ enteros $a_1, a_2, \cdots a_N$.
+%
+El entero $a_i$ corresponde a la intensidad en aplos en que el público
+aplaude para el participante $i$.
+%
+Sin importar la ronda, el público siempre aplaude $a_i$ por el participante
+$i$.
 \end{inputDescription}
 
 \begin{outputDescription}
-  La salida debe contener un único entero correspondiente a la suma de $a$ y $b$.
+La salida debe contender un entero correspondiente a la cantidad de rondas
+necesarias para terminar el proceso.
 \end{outputDescription}
 
 \begin{scoreDescription}
-  \subtask{50} Se probarán varios casos de prueba donde $-10^9\leq a, b \leq 10^9$.
-  \subtask{50} Se probarán varios casos de prueba sin restricciones adicionales.
+  \subtask{40} Se probarán varios casos de prueba donde $N \leq 10^3$.
+  \subtask{60} Se probarán varios casos de prueba sin restricciones adicionales.
 \end{scoreDescription}
 
 \begin{sampleDescription}
 \sampleIO{sample-1}
+
+% \hspace{2em}
+% \begin{minipage}{0.95\textwidth}
+\textbf{Explicación ejemplo:} Como se muestra a continuación, en este ejemplo se
+ejecutan cuatro rondas. En la primera ronda se eliminan el participante 3 y 4.
+En la segunda se elimina al participante 5. En la tercera se elimina
+al participante 6. Finalmente, en la cuarta ronda no hay ningún eliminado y por
+lo tanto el proceso termina.
+
+\fcolorbox{gray}{white}{
+  \begin{minipage}[t][5.2cm]{0.45\textwidth}
+  \textbf{Primera ronda:}
+  \begin{itemize}
+  \item Participante 1: 4 aplos
+  \item Participante 2: 5 aplos
+  \item Participante 3: 2 aplos (eliminado)
+  \item Participante 4: 1 aplos (eliminado)
+  \item Participante 5: 3 aplos
+  \item Participante 6: 4 aplos
+  \end{itemize}
+  \end{minipage}
+}
+\fcolorbox{gray}{white}{
+  \begin{minipage}[t][5.2cm]{0.45\textwidth}
+  \textbf{Segunda ronda:}
+  \begin{itemize}
+  \item Participante 1: 4 aplos
+  \item Participante 2: 5 aplos
+  \item Participante 5: 3 aplos (eliminado)
+  \item Participante 6: 4 aplos
+  \end{itemize}
+  \end{minipage}
+}
+
+\fcolorbox{gray}{white}{
+  \begin{minipage}[t][3cm]{0.45\textwidth}
+  \textbf{Tercera ronda:}
+  \begin{itemize}
+  \item Participante 1: 4 aplos
+  \item Participante 2: 5 aplos
+  \item Participante 6: 4 aplos (eliminado)
+  \end{itemize}
+  \end{minipage}
+}
+\fcolorbox{gray}{white}{
+  \begin{minipage}[t][3cm]{0.45\textwidth}
+  \textbf{Cuarta ronda:}
+  \begin{itemize}
+  \item Participante 1: 4 aplos
+  \item Participante 2: 5 aplos
+  \end{itemize}
+  \end{minipage}
+}
+% \end{minipage}
+
+
+% \begin{tabularx}{\linewidth}{X X}
+%   Primera ronda:
+%   \begin{itemize}
+%     \item Participante 1: 4 aplos
+%     \item Participante 2: 5 aplos
+%     \item Participante 3: 2 aplos (eliminado)
+%     \item Participante 4: 1 aplos (eliminado)
+%     \item Participante 5: 3 aplos
+%     \item Participante 6: 4 aplos
+%   \end{itemize}
+%   &
+%   Segunda ronda:
+%   \begin{itemize}
+%     \item Participante 1: 4 aplos
+%     \item Participante 2: 5 aplos
+%     \item Participante 5: 3 aplos (eliminado)
+%     \item Participante 6: 4 aplos
+%   \end{itemize}
+% \\
+% \hline
+%   Tercera ronda:
+%   \begin{itemize}
+%     \item Participante 1: 4 aplos
+%     \item Participante 2: 5 aplos
+%     \item Participante 6: 4 aplos (eliminado)
+%   \end{itemize}
+%   &
+%   Cuarta ronda:
+%   \begin{itemize}
+%     \item Participante 1: 4 aplos
+%     \item Participante 2: 5 aplos
+%   \end{itemize}
+% \\
+% \end{tabularx}
+
+
+
 \sampleIO{sample-2}
 \end{sampleDescription}
 
