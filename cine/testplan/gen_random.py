@@ -1,18 +1,27 @@
-# This script generates random test cases for the sample task. It takes a
-# minimum and maximum value and prints two random numbers in that range.
-# See the comment in testplan.txt for further details.
-
+# This script generates random n*m matrix
 import random
 import sys
 
 # The argument in position 1 is the hidden seed.
 random.seed(sys.argv[1])
 
-# The min and max are in positions 2 and 3
-MIN = int(sys.argv[2])
-MAX = int(sys.argv[3])
+N = int(sys.argv[2])
+M = int(sys.argv[3])
+K = int(sys.argv[4])
 
-# Check that the range is valid
-assert MIN <= MAX
+def generate_matrix(n, m, t):
+    if t > n * m:
+        raise ValueError("Number of zeroes cannot exceed the total number of elements in the matrix.")
 
-print(random.randint(MIN, MAX), random.randint(MIN, MAX))
+    elements = [0] * t + [1] * (n * m - t)
+    random.shuffle(elements)
+
+    matrix = [elements[i * m:(i + 1) * m] for i in range(n)]
+    return matrix
+
+zeros = random.randint(K+1, N*M)
+matrix = generate_matrix(N, M, zeros)
+print(N, M, K)
+for i in range(N):
+    s = [str(x) for x in matrix[i]]
+    print(" ".join(s))
