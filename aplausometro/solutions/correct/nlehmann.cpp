@@ -34,10 +34,16 @@ int findRounds(vector<int>& arr) {
 }
 
 int main() {
+  int n;
+  cin >> n;
+  vector<int> arr(n);
+  for (int i = 0; i < n; i++) {
+    cin >> arr[i];
+  }
   //   vector<int> arr = {5, 1, 2, 3, 4, 2, 1};
   //   vector<int> arr = {4, 5, 2, 1, 3, 4};
-  vector<int> arr = {5, 2, 1, 3, 2};
-  cout << "Iterations required: " << findRounds(arr) << endl;
+  //   vector<int> arr = {5, 2, 1, 3, 2};
+  cout << findRounds(arr) << endl;
   return 0;
 }
 
