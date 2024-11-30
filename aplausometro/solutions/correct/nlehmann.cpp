@@ -12,7 +12,7 @@ int findRounds(vector<int>& arr) {
     int currentRound = 0;
 
     // Propagate rounds for elements smaller than the current
-    while (!stk.empty() && stk.top().first < arr[i]) {
+    while (!stk.empty() && stk.top().first <= arr[i]) {
       currentRound = max(currentRound, stk.top().second);
       stk.pop();
     }

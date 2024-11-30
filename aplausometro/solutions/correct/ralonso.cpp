@@ -31,7 +31,7 @@ int main() {
         s.push({aplos, round});
         break;
       }
-      round = s.top().second + 1;
+      round = max(round, s.top().second + 1);
       s.pop();
     }
   }

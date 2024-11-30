@@ -7,7 +7,10 @@
   border-case ; gen_equal.py 1
   border-case ; gen_equal.py 1000
 
-  rand ; gen_random.py 1000
+  rand ; gen_random.py 15 15
+  rand ; gen_random.py 30 30
+  rand ; gen_random.py 1000 1000
+  rand ; gen_random.py 1000 1000000
 
   perf ; gen_inverse.py 1000
   perf ; gen_offset.py 1000 0
@@ -24,7 +27,8 @@
 
   border-case ; gen_equal.py 1000000
 
-  rand ; gen_random.py 1000000
+  rand ; gen_random.py 1000000 1000000
+  rand ; gen_random.py 1000000 1000000000
 
   perf ; gen_inverse.py 1000000
   perf ; gen_offset.py 1000000 0
