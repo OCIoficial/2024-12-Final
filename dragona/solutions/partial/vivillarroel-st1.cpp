@@ -10,14 +10,21 @@
 // For the sample task, this solution should fail the subtask 2 because it uses
 // `int` instead of `long`. This implies the solution should pass subtask 1.
 
-// @ocimatic should-fail=[st2]
+// @ocimatic should-fail=[st2,st3,st4]
 #include <iostream>
 
+using namespace std;
+
 int main() {
-  int32_t a, b;
-  std::cin >> a >> b;
-
-  std::cout << a + b << std::endl;
-
-  return 0;
+	int n, h;
+	cin >> n >> h;
+	if (n == 0) {
+		cout << h-1 << endl;
+	}
+	else {
+		int a, b;
+		cin >> a >> b;
+		cout << h-1-(b-a) << endl;
+	}
+	return 0;
 }
