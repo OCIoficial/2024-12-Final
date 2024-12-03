@@ -9,36 +9,52 @@
   Como todos sabrán, Anita fue recientemente
   declarada la nueva guerrera dragona, encargada
   de proteger del mal al reino de Ocilandia.
-  Sin embatgo, hace unos momentos, se iluminó una
-  Anita-señal frente a la torre de $h$ pisos.
+  % Sin embatgo, hace unos momentos, se iluminó una
+  % Anita-señal frente a la torre de $h$ pisos.
+  %
+  En su primera misión, nuestra heroína debe ir
+  a la Torre de $h$ Pisos, donde el malvado
+  Marcos nuevamente amenaza con destruir la OCI.
+  %
+  Anita no teme enfrentarse a Marcos, pero al llegar a
+  la torre, se dio cuenta de que debe primero subir
+  hasta el último piso, enfrentándose al verdadero enemigo
+  en el proceso: las escaleras.
 
-  ¡Resulta que el malvado Marcos nuevamente amenaza
-  con destruir la OCI!
+  % ¡Resulta que el malvado Marcos nuevamente amenaza
+  % con destruir la OCI!
 
-  Anita fue al rescate, pero se dio cuenta de que
-  antes de poder derrotar a Marcos, debe subir
-  desde el piso $1$ hasta el último piso de la torre,
-  enfrentándose contra su mayor enemigo en el proceso:
-  las escaleras.
-
-  Afortunadamente, la torre contiene $n$ sets de ascensores,
-  pero como están en malas condiciones, el ascensor $i$
-  solo sirve para subir desde el piso $a_i$ hasta el
-  $b_i$, sin parar entre medio. Cabe notar que estos ascensores
-  no son también descensores (como la mayoría de ascensores),
+  Como es de esperar, la Torre de $h$ Pisos tiene $h$ pisos
+  numerados de 1 a $h$.
+  %
+  Entre cada par de pisos consecutivos existe una
+  escalera que puede ser usada para subir de un piso al
+  siguiente.
+  %
+  Adicionalmente, la torre posee $n$ ascensores.
+  %
+  Estos están en muy malas condiciones y por lo tanto el
+  ascensor $i$ solo sirve para subir desde el piso $a_i$ hasta el
+  $b_i$, sin parar entre medio.
+  %
+  Además, cabe notar que estos solo son ascensores y no descensores,
   por lo que no es posible utilizarlos para bajar.
 
-  Anita desea minimizar la cantidad de escaleras que
+  Anita quiere minimizar la cantidad de escaleras que
   necesita subir para alivianar su sufrimiento, sin embargo,
   evitará a toda costa bajarlas porque tiene
   problemas en las rodillas.
-
-  Para poder planificar bien su viaje, necesita saber la
-  cantidad mínima de escaleras que necesita subir.
+  %
+  Específicamente, usando los ascensores y las escaleras,
+  Anita quiere encontrar una ruta desde el piso 1 al $h$ que
+  minimice la cantidad de escaleras que debe subir.
+  %
   Normalmente lo calcularía mentalmente, pero está demasiado
   ocupada planificando cómo derrotar a Marcos, por lo que
-  te pidió ayuda con esta tarea. ¿Podrás ayudar a Anita
-  a llegar a la base de su enemigo?
+  te pidió ayuda con esta tarea.
+  %
+  ¿Podrás ayudar a Anita a subir la torre para
+  que enfrente a su enemigo y así pueda salvar la OCI?
 \end{problemDescription}
 
 \begin{inputDescription}
@@ -55,14 +71,17 @@
 \end{inputDescription}
 
 \begin{outputDescription}
-  La salida debe tener un único entero, correspondiente a la cantidad
-  mínima de escaleras que Anita debe subir.
+  La salida debe tener un único entero, correspondiente a la
+  cantidad mínima de escaleras con la que es posible ir desde
+  el piso 1 al $h$.
 \end{outputDescription}
 
+\newpage
 \begin{scoreDescription}
-  \subtask{??} Se probarán varios casos de pureba donde $n \leq 1$.
-  \subtask{??} Se probarán varios casos de prueba donde $b_i < a_{i+1}$ para todo $i$. Es decir, los
-  ascensores están ordenados y no se intersectan.
+  \subtask{??} Se probarán varios casos de prueba donde $n = 1$, es decir, hay exactamente un
+  ascensor.
+  \subtask{??} Se probarán varios casos de prueba donde $b_i < a_{i+1}$ para todo $i$.
+  Es decir, los ascensores están ordenados y no se intersectan.
   \subtask{??} Se probarán varios casos de prueba donde $n \leq 10^3$ y $h \leq 10^3$.
   \subtask{??} Se probarán varios casos de prueba sin restricciones adicionales
 \end{scoreDescription}
