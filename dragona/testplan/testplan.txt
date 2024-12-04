@@ -19,7 +19,7 @@
 
 [Subtask 3]
   @extends subtask 1
-  sample ; copy statement/sample-*.in
+  sample ; copy statement/sample-2.in
   random ; gen_random.py 1000 1000 1 5
   random ; gen_random.py 1000 1000 0 2
 
