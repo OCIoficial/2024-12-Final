@@ -9,7 +9,7 @@
 
   # Formato del random: ascensores pisos randomizar_cantidad_ascensores cantidad_casos
 
-  random ; gen_random_no_intersection.py 1 100000 1 10
+  random ; gen_random_no_intersection.py 1 100000 0 10
 
 [Subtask 2]
   @extends subtask 1
