@@ -18,8 +18,10 @@
   perf ; gen_offset.py 1000 500
   perf ; gen_offset.py 1000 999
 
-  # n 1 2 ... n-1 con x permutaciones entre elementos adyacentes
-  # n 1 2 ... n-1 con x +1 o -1 en elementos arbitrarios (puede salir el mismo varias veces)
+  seesaw ; gen_seesaw.py 1000 40 1 1
+  seesaw ; gen_seesaw.py 1000 40 -1 1
+  seesaw ; gen_seesaw.py 1000 40 1 -1
+  seesaw ; gen_seesaw.py 1000 40 -1 -1
 
 
 [Subtask 2 - validators/st2.cpp]
@@ -35,3 +37,8 @@
   perf ; gen_offset.py 1000000 1
   perf ; gen_offset.py 1000000 500000
   perf ; gen_offset.py 1000000 999999
+
+  seesaw ; gen_seesaw.py 1000000 1000 1 1
+  seesaw ; gen_seesaw.py 1000000 1000 -1 1
+  seesaw ; gen_seesaw.py 1000000 1000 1 -1
+  seesaw ; gen_seesaw.py 1000000 1000 -1 -1
