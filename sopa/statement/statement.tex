@@ -1,6 +1,7 @@
 \documentclass{oci}
 \usepackage[utf8]{inputenc}
 \usepackage{lipsum}
+\usepackage{amsmath}
 
 \title{Sopa de letras}
 
@@ -35,15 +36,15 @@
 \end{problemDescription}
 
 \begin{inputDescription}
-  La primera línea de la entrada contiene el entero $n$ ($1 \leq n \leq 50$). 
+  La primera línea de la entrada contiene el entero $n$ ($2 \leq n \leq 50$). 
 
   Cada una de las siguientes $n$ líneas contienen $n$ caracteres, describiendo
   cada fila de la cuadrícula de arriba hacia abajo.
 
   La siguiente línea contiene un entero $m$ ($1 \leq m \leq 50$).
 
-  Cada una de las siguientes $m$ líneas contienen una palabra que se debe
-  buscar en la cuadrícula, las cuales son de un largo menor o igual a $n$.
+  Cada una de las siguientes $m$ líneas contienen un string $s$ que representa
+    una palabra a buscar en la cuadrícula ($2 \leq \text{largo de } s \leq n$).
 
   Todos los caracteres de la cuadrícula y de las $m$ palabras corresponden a letras mayúsculas
   del alfabeto inglés.
