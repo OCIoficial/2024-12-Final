@@ -3,48 +3,76 @@
 \usepackage{lipsum}
 \usepackage{amsmath}
 
-\title{Sopa de letras}
+\title{Burrito de letras}
 
 \begin{document}
 \begin{problemDescription}
-  En el Instituto de Colección de Palabras en Cuadrículas (ICPC) son fanáticos de los juegos que
-  involucran palabras tales como la famosa sopa de letras, en donde el jugador debe buscar palabras
-  ocultas en una cuadrícula de $n \times n$ casillas con letras.
+  En el Instituto de Colección de Palabras en Cuadrículas (ICPC) son fanáticos
+  de los juegos que involucran palabras tales como la famosa sopa de letras
+  en donde un jugador debe buscar palabras ocultas en una cuadrícula de $n \times n$
+  casillas.
 
-  Cada año la ICPC organiza una convención donde se presentan innovadoras variantes de juegos de palabras,
-  y este año no fue la excepción. Esta vez se anunció que traerían una nueva versión de 
-  la sopa de letras llamada ``sopa de letras cilíndrica''. La sopa de letras cilíndrica funciona igual
-  que una sopa de letras normal, solo que además la cuadrícula es colocada alrededor de un cilindro.
+  Cada año, el ICPC organiza una convención donde se presentan
+  innovadoras variantes de juegos de palabras.
+  %
+  Este año, Norma Gibat, la famosa inventora de juegos de palabra,
+  presentó una nueva versión de la sopa de letras basándose en su
+  comida favorita: los burritos.
 
-  En particular, las reglas de la sopa de letras cilíndrica son las siguientes:
+  Esta nueva versión, llamada ``burrito de letras'', funciona igual
+  que una sopa de letras normal, solo que además la cuadrícula es
+  colocada alrededor de un cilindro como si estuviese envolviendo
+  un burrito.
+  %
+  En particular, las reglas del burrito de letras son las siguientes:
   \begin{itemize}
     \item El juego consiste en una cuadrícula de $n \times n$ donde cada casilla tiene una letra
       escrita.
-    \item Al jugador se le presenta además una lista de $m$ palabras las cuales pueden estar o no
-      escritas en la cuadrícula. Para cada una de ellas, el jugador debe responder si está o no
-      en la cuadrícula.
-    \item Una palabra puede estar escrita en cualquier lugar de forma vertical de arriba hacia abajo, 
+    \item Al jugador se le presenta además una lista de $m$ palabras, las cuales
+      pueden estar o no escritas en la cuadrícula.
+      %
+      Para cada una de ellas, el jugador debe responder
+      si está o no en la cuadrícula.
+    \item Una palabra puede estar escrita en cualquier lugar de forma vertical de arriba hacia abajo,
       o de forma horizontal de izquierda a derecha.
-    \item La cuadrícula está colocada alrededor de un cilindro. Es decir, después de la última letra
-      de cada fila viene la primera letra de la misma fila, y antes de la primera letra de cada fila
-      viene la última letra de la misma fila.
+      %
+      Las palabras no pueden aparecer de forma diagonal.
+    \item La cuadrícula está colocada alrededor de un cilindro y una palabra puede
+      ``dar la vuelta'' en sentido horizontal.
+      %
+      Es decir, la primera y última letra de cada fila se consideran adyacentes.
   \end{itemize}
 
-  Como ya has demostrado tus habilidades de lógica y programación clasificando a la final nacional de la OCI,
-  decides hacer un programa que resuelva una sopa de letras cilíndricas y así impresionar a los jueces en la
-  convención de la ICPC.
+  Para poder explicar mejor el juego, Norma necesita mostrar la
+  solución a varios burritos de letras de ejemplo, pero está muy
+  ocupada interactuando con todos sus fans para hacerlo ella misma.
+  %
+  ?`Podrías ayudarla?
+  % Como ya has demostrado tus habilidades de lógica y programación clasificando a la final nacional de la OCI,
+  % decides hacer un programa que resuelva una sopa de letras cilíndricas y así impresionar a los jueces en la
+  % convención de la ICPC.
+
+  \begin{figure}
+  \centering
+  \includegraphics[scale=0.15]{burrito-1.png}
+  \caption{Imagen del prototipo presentado durante la convención.}
+  \end{figure}
 \end{problemDescription}
 
 \begin{inputDescription}
-  La primera línea de la entrada contiene el entero $n$ ($2 \leq n \leq 50$). 
+  La primera línea de la entrada contiene un entero $n$ ($2 \leq n \leq 50$) correspondiente
+  al tamaño de la cuadrícula.
 
-  Cada una de las siguientes $n$ líneas contienen $n$ caracteres, describiendo
-  cada fila de la cuadrícula de arriba hacia abajo.
+  Cada una de las siguientes $n$ líneas contiene $n$ caracteres, describiendo
+  las filas de la cuadrícula de arriba hacia abajo.
 
-  La siguiente línea contiene un entero $m$ ($1 \leq m \leq 50$).
+  Luego sigue una línea conteniendo un entero $m$ ($1 \leq m \leq 50$), correspondiente
+  a la cantidad de palabras a buscar.
 
-  Cada una de las siguientes $m$ líneas contienen un string $s$ que representa
-    una palabra a buscar en la cuadrícula ($2 \leq \text{largo de } s \leq n$).
+  Cada una de las siguientes $m$ líneas contienen una palabra a buscar.
+  %
+  El largo de cada una de las palabras a buscar será mayor o igual a 2 y menor o igual
+  que $n$.
 
   Todos los caracteres de la cuadrícula y de las $m$ palabras corresponden a letras mayúsculas
   del alfabeto inglés.
@@ -52,12 +80,12 @@
 
 \begin{outputDescription}
   Para cada una de las $m$ palabras, imprime una línea que diga \texttt{PRESENTE} si la palabra está
-  en la sopa de letras cilíndrica o \texttt{AUSENTE} de lo contrario.
+  en el burrito de letras o \texttt{AUSENTE} de lo contrario.
 \end{outputDescription}
 
 \begin{scoreDescription}
-  \subtask{50} Se probarán varios casos de prueba donde solo hay palabras escritas de forma vertical de arriba
-  hacia abajo.
+  \subtask{50} Se probarán varios casos en que se garantiza que no aparecen palabras en sentido
+  vertical, es decir, si una palabra está presente, está aparecerá de forma vertical.
   \subtask{50} Se probarán varios casos de prueba sin restricciones adicionales.
 \end{scoreDescription}
 
