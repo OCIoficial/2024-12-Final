@@ -18,10 +18,10 @@
   random ; gen_random_no_intersection.py 50000 100000 1 5
 
 [Subtask 3]
-  @extends subtask 1
   sample ; copy statement/sample-2.in
-  random ; gen_random.py 1000 1000 1 5
-  random ; gen_random.py 1000 1000 0 2
+  random ; gen_random.py 20 1000000 1 5
+  random ; gen_random.py 20 1000 1 5
+  random ; gen_random.py 20 1000000 0 10
 
 [Subtask 4]
   @extends subtask 2
