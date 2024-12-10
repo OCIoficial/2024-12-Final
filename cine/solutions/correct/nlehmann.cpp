@@ -16,7 +16,7 @@ bool try_radius(vector<vector<int>> &sums, vector<vector<int>> &seats, int r) {
       }
 
       // Contar la cantidad de ceros en la submatriz de radio `r` centrada en
-      // `(x, y)` asegurandose que esté totalmente contenida.
+      // `(x, y)` asegurandose de que esté totalmente contenida.
       int y1 = max(y - r, 1), y2 = min(y + r, N);
       int x1 = max(x - r, 1), x2 = min(x + r, M);
       int c = sums[y2][x2] - sums[y1 - 1][x2] - sums[y2][x1 - 1] +
@@ -38,7 +38,7 @@ int main() {
 
   // Los asientos
   vector<vector<int>> seats(N + 1, vector<int>(M + 1));
-  // Suma de prefijos para calcular la cantidad de ceros en una submatriz
+  // Suma de "prefijos" para calcular la cantidad de ceros en una submatriz
   vector<vector<int>> sums(N + 1, vector<int>(M + 1, 0));
   for (int y = 1; y <= N; ++y) {
     for (int x = 1; x <= M; ++x) {
