@@ -9,18 +9,19 @@
 
   # Formato del random: ascensores pisos randomizar_cantidad_ascensores cantidad_casos
 
-  random ; gen_random_no_intersection.py 1 100000 0 10
+  random ; gen_random_no_intersection.py 1 1000000 0 10
 
 [Subtask 2 - validators/validator.cpp]
   @extends subtask 1
 
-  all-elevators ; gen_random_no_intersection.py 50000 100000 0 1
-  random ; gen_random_no_intersection.py 50000 100000 1 5
+  all-elevators ; gen_random_no_intersection.py 50000 1000000 0 1
+  random ; gen_random_no_intersection.py 50000 1000000 1 5
 
 [Subtask 3 - validators/validator.cpp]
   @extends subtask 1
 
   sample ; copy statement/sample-2.in
+  no-elevators ; gen_random.py 0 1000000 0 1
   random ; gen_random.py 20 1000000 1 5
   random ; gen_random.py 20 1000 1 5
   random ; gen_random.py 20 1000000 0 10
@@ -28,5 +29,5 @@
 [Subtask 4 - validators/validator.cpp]
   @extends subtask 2
   @extends subtask 3
-  random ; gen_random.py 100000 100000 1 5
-  random ; gen_random.py 100000 100000 0 2
+  random ; gen_random.py 100000 1000000 1 5
+  random ; gen_random.py 100000 1000000 0 2
