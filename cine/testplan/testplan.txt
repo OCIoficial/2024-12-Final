@@ -1,7 +1,7 @@
 # This is a test plan for the sample task. See the README.md next to this file for more details on
 # how to write a test plan.
 
-[Subtask 1 - validators/st1.cpp]
+[Subtask 1 - validators/validator.cpp]
   rand ; gen_random.py 20 20 10
   rand ; gen_random.py 20 20 10
 
@@ -11,7 +11,7 @@
   rand ; gen_random.py 20 20 300
   rand ; gen_random.py 20 20 300
 
-[Subtask 2 - validators/st2.cpp]
+[Subtask 2 - validators/validator.cpp]
   @extends subtask 1
 
   # You can use `copy` to use sample test cases in the test plan. Here we use a glob pattern
@@ -46,7 +46,7 @@
   rand ; gen_random.py 5000 1 2500
   rand ; gen_random.py 1 5000 2500
 
-[Subtask 3 - validators/st3.cpp]
+[Subtask 3 - validators/validator.cpp]
   rand ; gen_random.py 1 5000 10
   rand ; gen_random.py 1 10000 10
   rand ; gen_random.py 1 100000 10
@@ -67,7 +67,7 @@
 
   rand ; gen_random.py 1 1000000 100000
 
-[Subtask 4 - validators/st4.cpp]
+[Subtask 4 - validators/validator.cpp]
   @extends subtask 2
   @extends subtask 3
 
