@@ -8,34 +8,32 @@
 \begin{problemDescription}
   Como todos sabrán, Anita fue recientemente
   declarada la nueva guerrera dragona, encargada
-  de proteger del mal al reino de Ocilandia.
-  % Sin embatgo, hace unos momentos, se iluminó una
-  % Anita-señal frente a la torre de $h$ pisos.
+  de proteger del mal al Valle de la Paz.
   %
   En su primera misión, nuestra heroína debe ir
-  a la Torre de $h$ Pisos, donde el malvado
-  Marcos nuevamente amenaza con destruir la OCI.
+  a la Torre de la Llama Sagrada, donde
+  el malvado Marcos nuevamente amenaza con
+  destruir todo a su paso.
   %
-  Anita no teme enfrentarse a Marcos, pero al llegar a
-  la torre, se dio cuenta de que debe primero subir
-  hasta el último piso, enfrentándose al verdadero enemigo
-  en el proceso: las escaleras.
+  Para su pesar, al llegar a la torre, se dio cuenta
+  de que debe primero subir hasta el último piso,
+  enfrentándose a su viejo enemigo en el proceso: las escaleras.
 
   % ¡Resulta que el malvado Marcos nuevamente amenaza
   % con destruir la OCI!
 
-  Como es de esperar, la Torre de $h$ Pisos tiene $h$ pisos
-  numerados de 1 a $h$.
+  La Torre de la Llama Sagrada tiene $h$ pisos numerados
+  de 1 a $h$.
   %
   Entre cada par de pisos consecutivos existe una
-  escalera que puede ser usada para subir de un piso al
-  siguiente.
+  escalera que puede ser usada para subir del piso $i$
+  al $i + 1$.
   %
   Adicionalmente, la torre posee $n$ ascensores.
   %
   Estos están en muy malas condiciones y por lo tanto el
-  ascensor $i$ solo sirve para subir desde el piso $a_i$ hasta el
-  $b_i$, sin parar entre medio.
+  ascensor $j$ solo sirve para subir desde el piso $a_j$ hasta el
+  $b_j$, sin parar entre medio.
   %
   Además, cabe notar que estos solo son ascensores y no descensores,
   por lo que no es posible utilizarlos para bajar.
@@ -45,7 +43,7 @@
   evitará a toda costa bajarlas porque tiene
   problemas en las rodillas.
   %
-  Específicamente, usando los ascensores y las escaleras,
+  Específicamente, usando los ascensores y las escaleras para subir,
   Anita quiere encontrar una ruta desde el piso 1 al $h$ que
   minimice la cantidad de escaleras que debe subir.
   %
@@ -54,7 +52,8 @@
   te pidió ayuda con esta tarea.
   %
   ¿Podrás ayudar a Anita a subir la torre para
-  que enfrente a su enemigo y así pueda salvar la OCI?
+  que enfrente a Marcos y así pueda salvar al Valle de
+  la Paz?
 \end{problemDescription}
 
 \begin{inputDescription}
@@ -65,9 +64,9 @@
 
   Luego, siguen $n$ líneas describiendo cada uno de los ascensores.
 
-  La i-ésima línea contiene dos enteros $a_i, b_i$
-  ($1 \leq a_i < b_i \leq h$), que corresponden respectivamente
-  al piso de inicio y al de llegada del ascensor.
+  La $j$-ésima línea contiene dos enteros $a_j, b_j$
+  ($1 \leq a_j < b_j \leq h$), que corresponden respectivamente
+  al piso de inicio y al de llegada del ascensor $j$.
 \end{inputDescription}
 
 \begin{outputDescription}
@@ -80,7 +79,7 @@
 \begin{scoreDescription}
   \subtask{??} Se probarán varios casos de prueba donde $n = 1$, es decir, hay exactamente un
   ascensor.
-  \subtask{??} Se probarán varios casos de prueba donde $b_i < a_{i+1}$ para todo $i$.
+  \subtask{??} Se probarán varios casos de prueba donde $b_j < a_{j+1}$ para todo $j$.
   Es decir, los ascensores están ordenados y no se intersectan.
   \subtask{??} Se probarán varios casos de prueba donde $n \leq 20$.
   \subtask{??} Se probarán varios casos de prueba sin restricciones adicionales.
