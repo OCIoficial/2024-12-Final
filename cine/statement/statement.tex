@@ -83,25 +83,33 @@
     los asientos que están ocupados.
     %
     La imagen muestra una configuración con Pedro sentado en
-    la posición $(3, 2)$ (marcado con {\color{pedro} rojo}) y
+    la posición $(3, 2)$ (marcado con una cruz) y
     con sus amigos sentados en las posiciones $(2, 2)$, $(4, 3)$ y $(4, 4)$
-    (marcado con {\color{amigo} azul}).
+    (marcados con un círculo).
     %
     En este escenario, la distancia entre Pedro y su amigo
     más lejano (el amigo en la posición $(4, 4)$) es $2$,
     es decir, la distancia grupal es $2$.
     %
-    Esta distancia es mínima, pues no hay ninguna
+    Esta distancia es además mínima, pues no hay ninguna
     otra configuración donde la distancia grupal
     sea menor que $2$.
 
     \begin{figure}[h]
         \centering
         \begin{tikzpicture}
-            \fill[amigo] (1,2) rectangle (2,3);
-            \fill[pedro] (2,2) rectangle (3,3);
-            \fill[amigo] (3,1) rectangle (4,2);
-            \fill[amigo] (3,0) rectangle (4,1);
+            % \fill[amigo] (1,2) rectangle (2,3);
+            % \fill[pedro] (2,2) rectangle (3,3);
+            % \fill[amigo] (3,1) rectangle (4,2);
+            % \fill[amigo] (3,0) rectangle (4,1);
+
+            \draw[ultra thick, amigo] (1.5,2.5) circle(0.4);
+            \draw[ultra thick, pedro] (2.1, 2.1) -- (2.9, 2.9);
+            \draw[ultra thick, pedro] (2.1, 2.9) -- (2.9, 2.1);
+            \draw[ultra thick, amigo] (3.5,1.5) circle(0.4);
+            \draw[ultra thick, amigo] (3.5,0.5) circle(0.4);
+
+
             \cine
         \end{tikzpicture}
         % \caption{Una posible asignación optima para el Cine anterior si Pedro tiene $K=3$ amigos.}
