@@ -18,6 +18,8 @@
   random ; gen_random_no_intersection.py 50000 100000 1 5
 
 [Subtask 3 - validators/st3.cpp]
+  @extends subtask 1
+
   sample ; copy statement/sample-2.in
   random ; gen_random.py 20 1000000 1 5
   random ; gen_random.py 20 1000 1 5
