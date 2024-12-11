@@ -40,24 +40,6 @@ int main() {
   for (int i = 0; i < n; i++) {
     cin >> arr[i];
   }
-  //   vector<int> arr = {5, 1, 2, 3, 4, 2, 1};
-  //   vector<int> arr = {4, 5, 2, 1, 3, 4};
-  //   vector<int> arr = {5, 2, 1, 3, 2};
   cout << findRounds(arr) << endl;
   return 0;
 }
-
-// 5 1 2 3 4 2 1
-// 5 2 3 4
-// 5 3 4
-// 5 4
-// 5
-
-// 5 2 1 3 2
-// 5 3
-// 5
-
-// 4 5 2 1 3 4
-// 4 5 3 4
-// 4 5 4
-// 4 5

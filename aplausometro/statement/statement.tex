@@ -3,6 +3,7 @@
 \usepackage{lipsum}
 \usepackage{tabularx}
 \usepackage{booktabs}
+\usepackage{cancel}
 
 \title{Aplausómetro}
 
@@ -23,8 +24,7 @@ El problema con este sistema es que
 un participante está en desventaja con respecto
 al siguiente, pues luego de que el público aplaude por
 alguien, la parte del público que quiere que gane el siguiente
-participante sabe cuanto tiene que aplaudir para que
-gane.
+sabe cuanto tiene que aplaudir para que gane.
 %
 Por lo tanto, si un participante recibe más aplausos
 que el anterior, eso no quiere decir que sea más preferido.
@@ -44,9 +44,9 @@ En este nuevo sistema, el animador también presenta a cada uno
 de los participantes de izquierda a derecha y pide al público
 que aplaudan por ellos.
 %
-Si la intensidad de los aplausos para un participante $a$ es estrictamente
+Si la intensidad de los aplausos para un participante $i$ es estrictamente
 menor que la intensidad de aplausos para el participante directamente a
-su izquierda el participante $a$ queda eliminado.
+su izquierda el participante $i$ queda eliminado.
 %
 Al final de la ronda, los participantes eliminados son sacados
 de la fila y comienza una nueva ronda.
@@ -77,16 +77,16 @@ necesarias para que el proceso termine.
 \begin{inputDescription}
 La primera línea de la entrada contiene un entero $N$
 ($1 \leq N \leq 10^6$) correspondiente a la cantidad
-inicial de participantes
+inicial de participantes.
 %
 Cada participante es numerado con un entero entre $1$ y $N$.
 %
-La segunda línea contiene $N$ enteros $a_1, a_2, \cdots a_N$.
+La segunda línea contiene $N$ enteros $a_1 a_2 \cdots a_N$.
 %
 El entero $a_i$ corresponde a la intensidad en aplos en que el público
 aplaude para el participante $i$.
 %
-Sin importar la ronda, el público siempre aplaude $a_i$ por el participante
+Sin importar la ronda, el público siempre aplaude $a_i$ aplos por el participante
 $i$.
 \end{inputDescription}
 
@@ -105,56 +105,80 @@ necesarias para terminar el proceso.
 
 % \hspace{2em}
 % \begin{minipage}{0.95\textwidth}
-\textbf{Explicación ejemplo:} Como se muestra a continuación, en este ejemplo se
-ejecutan cuatro rondas. En la primera ronda se eliminan el participante 3 y 4.
-En la segunda se elimina al participante 5. En la tercera se elimina
-al participante 6. Finalmente, en la cuarta ronda no hay ningún eliminado y por
-lo tanto el proceso termina.
+\textbf{Explicación ejemplo:}
+%
+Como se muestra a continuación, en este ejemplo se
+requieren cuatro rondas para terminar el proceso.
+%
+En la primera ronda se eliminan los participantes 3 y 4.
+%
+En la segunda se elimina al participante 5.
+%
+En la tercera se elimina al participante 6.
+%
+Finalmente, en la cuarta ronda no hay ningún eliminado y por
+lo tanto el proceso termina al finalizar esta ronda.
 
-\fcolorbox{gray}{white}{
-  \begin{minipage}[t][5.2cm]{0.45\textwidth}
-  \textbf{Primera ronda:}
-  \begin{itemize}
-  \item Participante 1: 4 aplos
-  \item Participante 2: 5 aplos
-  \item Participante 3: 2 aplos (eliminado)
-  \item Participante 4: 1 aplos (eliminado)
-  \item Participante 5: 3 aplos
-  \item Participante 6: 4 aplos
-  \end{itemize}
-  \end{minipage}
-}
-\fcolorbox{gray}{white}{
-  \begin{minipage}[t][5.2cm]{0.45\textwidth}
-  \textbf{Segunda ronda:}
-  \begin{itemize}
-  \item Participante 1: 4 aplos
-  \item Participante 2: 5 aplos
-  \item Participante 5: 3 aplos (eliminado)
-  \item Participante 6: 4 aplos
-  \end{itemize}
-  \end{minipage}
-}
+\begin{center}
+\begin{tabular}{llr cccccc}
+\textbf{Primera ronda}& & Participante & 1 & 2 & \cancel{3} & \cancel{4} & 5 & 6 \\
+                       & & Aplos        & 4 & 5 & \cancel{2} & \cancel{1} & 3 & 4 \\
+\midrule
+\textbf{Segunda ronda}& & Participante & 1 & 2 & \cancel{5} & 6 \\
+                       & & Aplos        & 4 & 5 & \cancel{3} & 4 \\
+\midrule
+\textbf{Tercera ronda}& & Participante & 1 & 2 & \cancel{6} \\
+                       & & Aplos        & 4 & 5 & \cancel{4} \\
+\midrule
+\textbf{Cuarta ronda} & & Participante & 1 & 2 \\
+                       & & Aplos        & 4 & 5 \\
+\end{tabular}
+\end{center}
 
-\fcolorbox{gray}{white}{
-  \begin{minipage}[t][3cm]{0.45\textwidth}
-  \textbf{Tercera ronda:}
-  \begin{itemize}
-  \item Participante 1: 4 aplos
-  \item Participante 2: 5 aplos
-  \item Participante 6: 4 aplos (eliminado)
-  \end{itemize}
-  \end{minipage}
-}
-\fcolorbox{gray}{white}{
-  \begin{minipage}[t][3cm]{0.45\textwidth}
-  \textbf{Cuarta ronda:}
-  \begin{itemize}
-  \item Participante 1: 4 aplos
-  \item Participante 2: 5 aplos
-  \end{itemize}
-  \end{minipage}
-}
+% \fcolorbox{gray}{white}{
+%   \begin{minipage}[t][5.2cm]{0.45\textwidth}
+%   \textbf{Primera ronda:}
+%   \begin{itemize}
+%   \item Participante 1: 4 aplos
+%   \item Participante 2: 5 aplos
+%   \item Participante 3: 2 aplos (eliminado)
+%   \item Participante 4: 1 aplos (eliminado)
+%   \item Participante 5: 3 aplos
+%   \item Participante 6: 4 aplos
+%   \end{itemize}
+%   \end{minipage}
+% }
+% \fcolorbox{gray}{white}{
+%   \begin{minipage}[t][5.2cm]{0.45\textwidth}
+%   \textbf{Segunda ronda:}
+%   \begin{itemize}
+%   \item Participante 1: 4 aplos
+%   \item Participante 2: 5 aplos
+%   \item Participante 5: 3 aplos (eliminado)
+%   \item Participante 6: 4 aplos
+%   \end{itemize}
+%   \end{minipage}
+% }
+
+% \fcolorbox{gray}{white}{
+%   \begin{minipage}[t][3cm]{0.45\textwidth}
+%   \textbf{Tercera ronda:}
+%   \begin{itemize}
+%   \item Participante 1: 4 aplos
+%   \item Participante 2: 5 aplos
+%   \item Participante 6: 4 aplos (eliminado)
+%   \end{itemize}
+%   \end{minipage}
+% }
+% \fcolorbox{gray}{white}{
+%   \begin{minipage}[t][3cm]{0.45\textwidth}
+%   \textbf{Cuarta ronda:}
+%   \begin{itemize}
+%   \item Participante 1: 4 aplos
+%   \item Participante 2: 5 aplos
+%   \end{itemize}
+%   \end{minipage}
+% }
 % \end{minipage}
 
 
