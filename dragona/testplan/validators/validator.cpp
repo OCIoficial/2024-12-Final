@@ -14,7 +14,7 @@ bool isStrictlyIncreasing(const std::vector<int>& arr) {
 }
 
 std::tuple<int, int> readHeader() {
-  int n = inf.readInt(1, 100'000, "n");
+  int n = inf.readInt(0, 100'000, "n");
   inf.readSpace();
   int h = inf.readInt(1, 1'000'000, "h");
   inf.readEoln();
