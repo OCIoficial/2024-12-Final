@@ -48,7 +48,7 @@
 %% HEADER
 \getenv[\phase]{OCIMATIC_PHASE}
 
-\setlength\headheight{54.3pt} 
+\setlength\headheight{54.3pt}
 \pagestyle{fancy}
 \lhead{\includegraphics[height=34pt]{logo.eps}}
 \rhead{\phase\ \the\year}
@@ -76,31 +76,6 @@
     \end{center}
 }
 
-%% Sideness
-\getenv[\@sideness]{OCIMATIC_SIDENESS}
-
-\renewcommand*{\cleardoublepage}{
-  \clearpage
-  \ifdefstring{\@sideness}{twoside}{%
-    \ifnumodd{\c@page}{}{%
-      \hbox{}%
-      \thispagestyle{empty}%
-      \newpage%
-    }
-  }{}
-}
-
-\global\let\@useblankpage\@empty
-\getenv[\@useblankpage]{OCIMATIC_BLANK_PAGE}
-\newcommand{\@blankpage}{%
-  \ifdefstring{\@sideness}{twoside}{%
-    \clearpage%
-    \thispagestyle{empty}%
-    \hbox{}
-    \clearpage
-  }{}
-}
-
 %% Secciones de description
 \renewcommand{\subsection}{\@startsection{subsection}{2}{\z@}%
                                      {-1.0ex\@plus -1ex \@minus -.2ex}%
@@ -109,10 +84,6 @@
 \newenvironment{problemDescription}{\mymaketitle}{}
 \newenvironment{inputDescription}{\subsection*{Entrada}}{\par}
 \newenvironment{outputDescription}{\subsection*{Salida}}{\par}
-
-
-\AtEndDocument{\ifdefempty{\@useblankpage}{\cleardoublepage}{\@blankpage}}
-% \AtEndDocument{\cleardoublepage}
 
 %% Ejemplo Input/Output
 
