@@ -42,11 +42,11 @@ int main(int argc, char* argv[]) {
   auto vec = readElevators(n, h);
   inf.readEof();
 
-  if (argv[1] == "st1") {
+  if (!strcmp(argv[1], "st1")) {
     ensure(n == 1);
-  } else if (argv[1] == "st2") {
+  } else if (!strcmp(argv[1], "st2")) {
     ensure(isStrictlyIncreasing(vec));
-  } else if (argv[1] == "st3") {
-    ensure(n == 20);
+  } else if (!strcmp(argv[1], "st3")) {
+    ensure(n <= 20);
   }
 }

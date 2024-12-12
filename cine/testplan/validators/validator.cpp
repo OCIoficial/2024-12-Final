@@ -35,16 +35,16 @@ int main(int argc, char *argv[]) {
   inf.readEof();
 
   ensuref(zeros >= k + 1, "Not enough empty spaces in matrix.");
-  if (argv[1] == "st1") {
+  if (!strcmp(argv[1], "st1")) {
     ensuref(n <= 20, "n is too big for this subtask.");
     ensuref(m <= 20, "m is too big for this subtask.");
-  } else if (argv[1] == "st2") {
+  } else if (!strcmp(argv[1], "st2")) {
     ensuref(n * m <= 5000, "Matrix is too big for this subtask.");
     ensuref(zeros >= k + 1, "Not enough empty spaces in matrix.");
-  } else if (argv[1] == "st3") {
+  } else if (!strcmp(argv[1], "st3")) {
     ensuref(n == 1, "N must be 1 for this subtask.");
     ensuref(m <= 1'000'000, "Matrix is too big for this subtask.");
-  } else if (argv[1] == "st4") {
+  } else if (!strcmp(argv[1], "st4")) {
     ensuref(n * m <= 1'000'000, "Matrix is too big for this subtask.");
   }
 }
